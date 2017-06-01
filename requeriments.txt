@@ -1,1 +1,3 @@
 youtube-dl==2017.05.29
+requests
+bs4
