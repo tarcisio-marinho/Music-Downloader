@@ -2,71 +2,48 @@
 # coding=UTF-8
 # by Tarcisio marinho
 # github.com/tarcisio-marinho
-#
 
-from config import diretorio
-from constants import *
 
 from bs4 import BeautifulSoup
+from collections import namedtuple
 import youtube_dl
 import requests
-import os
 
-site = 'https://www.youtube.com/results?search_query='
+from config import limite
+from config import ydl_opts
+from config import site
 
-try:
-    musica = input('\33[94mNome ou letra da música: \033[0m')
-except KeyboardInterrupt:
-    exit()
-try:
-    r = requests.get(site + musica)
-except requests.exceptions.ConnectionError:
-    print('Erro conexão')
-    exit()
 
-bs_obj = BeautifulSoup(r.text, 'lxml')
-lista = []
-url = []
-i = 0
-limite = 8
-k = 0
-
-for li in bs_obj.find_all('h3'):
-    if(i > 2):
-        print('\033[1;32m' + str(i-2) + '\033[0m - ' + li.text+'\n')
-        lista.append(li.text)
-        for pa in li.find_all('a'):
-            url.append(pa.get('href'))
-        k += 1
-        if(k == limite):
-            break
-    i += 1
-
-while True:
+def get_html(musica):
     try:
-        escolha = int(input('\33[94mEscolha uma música: \033[0m')) - 1
-        break
-    except KeyboardInterrupt:
+        resp = requests.get(site + musica)
+    except requests.exceptions.ConnectionError:
+        print('Erro conexão')
         exit()
+    return resp.text    
+
+
+def parse_html(resp):
+    lista = []
+    bs_obj = BeautifulSoup(resp, 'lxml')
+
+    i = 0
+    for li in bs_obj.find_all('h3')[3:]:
+        musica = namedtuple('Musica', ['index', 'nome', 'url'])
+        musica.nome = li.text
+        musica.index = i
+        for pa in li.find_all('a'):
+            musica.url = pa.get('href')
+        lista.append(musica)
+        i += 1
+        if(i == limite):
+            break
+    return lista
+
+
+def get_audio(link):
+    try:
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([link])
     except:
-        print('Apenas números')
-
-print('\33[93mbaixando: ' + lista[escolha] + '\n\n')
-link = 'http://www.youtube.com' + url[escolha]
-ydl_opts = {
-    'format': 'bestaudio/best',
-    'postprocessors': [{
-        'key': 'FFmpegExtractAudio',
-        'preferredcodec': 'mp3',
-        'preferredquality': '192',
-    }],
-}
-
-try:
-    os.chdir(diretorio)
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([link])
-        os.system('clear')
-        print('Download pronto!\nSalvo na pasta: ' + diretorio + '/')
-except:
-    print('Algum erro ocorreu :0')
+        print('erro indesperado em download.et_audio()')
