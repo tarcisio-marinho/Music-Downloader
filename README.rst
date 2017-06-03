@@ -13,7 +13,7 @@ Tutorial Download
 Instalar a partir do codigo fonte:
 ----------------------------------
 
-.. code-block::
+.. code-block:: console
 
     $ git clone https://github.com/tarcisio-marinho/Music-Downloader.git
     $ sudo apt-get install python-pip
@@ -24,6 +24,6 @@ Instalar a partir do codigo fonte:
 Instalar via pip.
 -----------------
 
-.. code-block::
+.. code-block:: console
 
   $ sudo pip install Music-Downloader

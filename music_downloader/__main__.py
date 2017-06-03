@@ -1,3 +1,3 @@
-from app import interface
+from music_downloader import interface
 
 interface.main()
