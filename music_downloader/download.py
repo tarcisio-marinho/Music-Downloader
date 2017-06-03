@@ -9,9 +9,9 @@ from collections import namedtuple
 import youtube_dl
 import requests
 
-from config import limite
-from config import ydl_opts
-from config import site
+from .config import limite
+from .config import ydl_opts
+from .config import site
 
 
 def get_html(musica):
@@ -20,7 +20,7 @@ def get_html(musica):
     except requests.exceptions.ConnectionError:
         print('Erro conexão')
         exit()
-    return resp.text    
+    return resp.text
 
 
 def parse_html(resp):
