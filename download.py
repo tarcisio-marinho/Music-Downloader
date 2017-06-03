@@ -2,16 +2,21 @@
 # coding=UTF-8
 # by Tarcisio marinho
 # github.com/tarcisio-marinho
+#
+
+
+from constants import *
+
 import youtube_dl
 import requests
 import bs4 as bs
 import lxml
 import os
 
-BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[91m', '\33[97m', '\33[93m', '\033[1;35m', '\033[1;32m', '\033[0m'
 
 
 site = 'https://www.youtube.com/results?search_query='
+
 try:
     musica=input('\33[94mNome ou letra da música: \033[0m')
 except KeyboardInterrupt:
@@ -39,6 +44,7 @@ for li in bs_obj.find_all('h3'):
         if(k==limite):
             break
     i+=1
+
 while True:
     try:
         escolha=int(input('\33[94mEscolha uma música: \033[0m'))-1
@@ -58,6 +64,7 @@ ydl_opts = {
         'preferredquality': '192',
     }],
 }
+
 try:
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([link])
