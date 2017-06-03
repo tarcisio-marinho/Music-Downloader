@@ -10,7 +10,6 @@ from constants import *
 import youtube_dl
 import requests
 import bs4 as bs
-import lxml
 import os
 
 
