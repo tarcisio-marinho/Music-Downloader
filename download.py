@@ -13,7 +13,7 @@ BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[91m', '\33[97m'
 
 site = 'https://www.youtube.com/results?search_query='
 try:
-    musica=raw_input('\33[94mNome ou letra da música: \033[0m')
+    musica=input('\33[94mNome ou letra da música: \033[0m')
 except KeyboardInterrupt:
     exit()
 try:
@@ -21,12 +21,14 @@ try:
 except requests.exceptions.ConnectionError:
     print('Erro conexão')
     exit()
+
 bs_obj = bs.BeautifulSoup(r.text, 'lxml')
 lista=[]
 url=[]
 i=0
 limite=8
 k=0
+
 for li in bs_obj.find_all('h3'):
     if(i>2):
         print('\033[1;32m'+str(i-2)+'\033[0m - '+li.text+'\n')
