@@ -4,12 +4,12 @@
 # github.com/tarcisio-marinho
 #
 
-
+from config import diretorio
 from constants import *
 
+from bs4 import BeautifulSoup
 import youtube_dl
 import requests
-import bs4 as bs
 import os
 
 site = 'https://www.youtube.com/results?search_query='
@@ -24,7 +24,7 @@ except requests.exceptions.ConnectionError:
     print('Erro conexão')
     exit()
 
-bs_obj = bs.BeautifulSoup(r.text, 'lxml')
+bs_obj = BeautifulSoup(r.text, 'lxml')
 lista = []
 url = []
 i = 0
@@ -63,10 +63,10 @@ ydl_opts = {
 }
 
 try:
+    os.chdir(diretorio)
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([link])
         os.system('clear')
-        diretorio = os.getcwd()
         print('Download pronto!\nSalvo na pasta: ' + diretorio + '/')
 except:
     print('Algum erro ocorreu :0')
