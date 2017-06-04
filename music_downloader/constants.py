@@ -1,0 +1,7 @@
+BLUE = '\33[94m'
+RED = '\033[91m'
+WHITE = '\33[97m'
+YELLOW = '\33[93m'
+MAGENTA = '\033[1;35m'
+GREEN = '\033[1;32m'
+END = '\033[0m'
