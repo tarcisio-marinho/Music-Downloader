@@ -56,6 +56,12 @@ ydl_opts = {
         'preferredquality': '192',
     }],
 }
+
+if(os.path.isdir(os.environ['HOME']+'/Desktop/')):
+    os.chdir(os.environ['HOME']+'/Desktop/')
+elif(os.path.isdir(os.environ['HOME']+'/Área\ de\ Trabalho/')):
+    os.chdir(os.environ['HOME']+'/Área\ de\ Trabalho/')
+
 try:
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([link])
