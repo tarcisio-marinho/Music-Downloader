@@ -26,4 +26,8 @@ Instalar via pip.
 
 .. code-block:: console
 
-  $ sudo pip install Music-Downloader
+    $ sudo pip install Music-Downloader
+
+Executar
+--------
+    $ python -m music_downloader

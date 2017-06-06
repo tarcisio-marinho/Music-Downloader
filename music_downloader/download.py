@@ -46,4 +46,4 @@ def get_audio(link):
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([link])
     except:
-        print('erro indesperado em download.et_audio()')
+        print('erro indesperado em download.get_audio()')

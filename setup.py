@@ -14,7 +14,7 @@ with open(path.join(base, 'requirements.txt')) as f:
 
 setup(
     name='music_downloader',
-    version='0.1.11.dev',
+    version='0.1.12.dev',
     author=u'Tarcisio marinho',
     author_email='tarcisio_marinho09@hotmail.com',
     keywords='music download script python',
@@ -25,6 +25,7 @@ setup(
     long_description=readme,
     packages=find_packages(exclude=['tests']),
     install_requires=requirements,
-    maintainer='André Santos',
-    maintainer_email='andreztz@gmail.com'
+    maintainer='Tarcisio marinho, André Santos',
+    maintainer_email='tarcisio_marinho09@hotmail.com, andreztz@gmail.com '
+
 )
