@@ -64,10 +64,10 @@ ydl_opts = {
 }
 
 # TENTA SALVAR A MUSICA NA ÁREA DE TRABALHO
-if(os.path.isdir(os.environ['HOME']+'/Desktop/')):
-    os.chdir(os.environ['HOME']+'/Desktop/')
-elif(os.path.isdir(os.environ['HOME']+'/Área\ de\ Trabalho/')):
-    os.chdir(os.environ['HOME']+'/Área\ de\ Trabalho/')
+if(os.path.isdir(os.path.expanduser('~')+'/Desktop/')):
+    os.chdir(os.expanduser('~')+'/Desktop/')
+elif(os.path.isdir(os.path.expanduser('~')+'/Área\ de\ Trabalho/')):
+    os.chdir(os.path.expanduser('~')+'/Área\ de\ Trabalho/')
 
 # FAZ O DOWNLOAD 
 try:
