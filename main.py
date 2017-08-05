@@ -185,7 +185,7 @@ if(os.path.isdir(os.path.expanduser('~')+'/Desktop/')):
 elif(os.path.isdir(os.path.expanduser('~')+'/Área\ de\ Trabalho/')):
     os.chdir(os.path.expanduser('~')+'/Área\ de\ Trabalho/')
 
-# FAZ O DOWNLOAD 
+# FAZ O DOWNLOAD
 try:
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([link])
@@ -194,4 +194,3 @@ try:
         print('Download pronto!\nSalvo na pasta: '+diretorio+'/')
 except:
     print('Algum erro ocorreu :0')
->>>>>>> 10688de0d6ba722925fd6a78f6c3bf469f8e35e7
