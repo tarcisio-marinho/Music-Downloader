@@ -129,6 +129,7 @@ def busca_musica(musica, saida):
             diretorio=os.getcwd()
             print('Download pronto!\nSalvo na pasta: '+diretorio+'/')
     except:
+<<<<<<< HEAD
         error('Error ao baixar a música.')
 
 if __name__ == '__main__':
@@ -163,3 +164,34 @@ if __name__ == '__main__':
         playlist(args.playlist, saida)
     else:
         error('Sintaxe errada, apenas utilize -p ou -l ou -m\nUse -h para ajda')
+=======
+        print('Apenas números')
+
+# CONFIGURAÇÕES DE DOWNLOAD E LINK DE ESCOLHA DA MUSICA
+print('\33[93mbaixando: '+lista[escolha]+'\n\n')
+link='http://www.youtube.com'+url[escolha]
+ydl_opts = {
+    'format': 'bestaudio/best',
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '192',
+    }],
+}
+
+# TENTA SALVAR A MUSICA NA ÁREA DE TRABALHO
+if(os.path.isdir(os.path.expanduser('~')+'/Desktop/')):
+    os.chdir(os.path.expanduser('~')+'/Desktop/')
+elif(os.path.isdir(os.path.expanduser('~')+'/Área\ de\ Trabalho/')):
+    os.chdir(os.path.expanduser('~')+'/Área\ de\ Trabalho/')
+
+# FAZ O DOWNLOAD 
+try:
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([link])
+        os.system('clear')
+        diretorio=os.getcwd()
+        print('Download pronto!\nSalvo na pasta: '+diretorio+'/')
+except:
+    print('Algum erro ocorreu :0')
+>>>>>>> 10688de0d6ba722925fd6a78f6c3bf469f8e35e7
