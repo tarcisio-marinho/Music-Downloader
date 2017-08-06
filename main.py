@@ -73,7 +73,7 @@ def busca_musica(musica, saida):
     try:
         r=requests.get(site+musica)
     except requests.exceptions.ConnectionError:
-        erorr('Erro de conexão. Verifique sua conexão com a internet.')
+        error('Erro de conexão. Verifique sua conexão com a internet.')
     bs_obj = bs.BeautifulSoup(r.text, 'lxml')
     lista=[]
     url=[]
@@ -84,7 +84,8 @@ def busca_musica(musica, saida):
     # PROCURA TODOS OS LI'S NO CODIGO HTML DO RETORNO DA PAGINA
     for li in bs_obj.find_all('h3'):
         if(i>2):
-            print('\033[1;32m'+str(i-2)+'\033[0m - '+li.text+'\n')
+            string = (str(i-2)+' ' + li.text+'\n').encode('utf-8')
+            print(string)
             lista.append(li.text)
             for pa in li.find_all('a'):
                 url.append(pa.get('href'))
@@ -104,7 +105,8 @@ def busca_musica(musica, saida):
             print('Apenas números')
 
     # CONFIGURAÇÕES DE DOWNLOAD E LINK DE ESCOLHA DA MUSICA
-    print('\33[93mbaixando: '+lista[escolha]+'\n\n')
+    string = ('\33[93mbaixando: '+lista[escolha]+'\n\n').encode('utf-8')
+    print(string)
     link='http://www.youtube.com'+url[escolha]
     ydl_opts = {
         'format': 'bestaudio/best',
