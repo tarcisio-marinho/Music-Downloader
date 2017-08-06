@@ -63,6 +63,7 @@ def link(l, saida):
 
 
 def busca_musica(musica, saida):
+    os.chdir(saida)
     site = 'https://www.youtube.com/results?search_query='
     if(not musica):
         try:
@@ -113,13 +114,6 @@ def busca_musica(musica, saida):
             'preferredquality': '192',
         }],
     }
-
-    # TENTA SALVAR A MUSICA NA ÁREA DE TRABALHO
-    if(not saida):
-        if(os.path.isdir(os.environ['HOME']+'/Desktop/')):
-            os.chdir(os.environ['HOME']+'/Desktop/')
-        elif(os.path.isdir(os.environ['HOME']+'/Área\ de\ Trabalho/')):
-            os.chdir(os.environ['HOME']+'/Área\ de\ Trabalho/')
 
     # faz o urro, digo, DOWNLOAD
     try:
