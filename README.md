@@ -26,10 +26,6 @@ Baixe playlists inteiras do youtube.
     download -p [LINK]
     download -l https://www.youtube.com/watch?v=5abamRO41fE
 
-# Tutorial Download 
-
-https://www.youtube.com/watch?v=sh8lpp3kYoo
-
 # Download:
 
 https://sourceforge.net/projects/music-download/files/download/download
