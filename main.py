@@ -12,7 +12,7 @@ import subprocess
 import sys
 
 # argparse
-parser = argparse.ArgumentParser(description='Music-Downloader baixe músicas de um jeito simples\nDigitando o nome da música ou trexos/letra da música')
+parser = argparse.ArgumentParser(description='Music-Downloader baixe músicas de um jeito simples\nDigitando o nome da música ou trexos/letra da música.')
 parser.add_argument('-p', '--playlist', type = str, required = False, metavar = '',  help = 'Download entire youtube playlist')
 parser.add_argument('-m', '--music', type = str, required = False, metavar = '',  help = 'Nome da música ou letra/trexo da música.')
 parser.add_argument('-d', '--directory', type = str, required = False, metavar = '', help = 'Local onde serão salvo as suas músicas.')
