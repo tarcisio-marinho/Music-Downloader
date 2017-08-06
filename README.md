@@ -11,5 +11,6 @@ https://www.youtube.com/watch?v=sh8lpp3kYoo
     ~$ git clone https://github.com/tarcisio-marinho/Music-Downloader.git
     ~$ sudo apt-get install python-pip
     ~$ cd Music-Downloader
-    ~$ sudo pip install -r requeriments.txt
+    ~$ chmod +x requeriments.sh
+    ~$ ./requeriments.sh
     ~$ python download.py
