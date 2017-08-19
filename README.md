@@ -1,9 +1,14 @@
 # Music Downloader
+
+Easy way to download music/playlists.
+
 Baixe músicas de uma forma simples :D
 
 Esqueceu o nome da música? escreva uma parte da letra, ou simplesmente baixe pelo link.
 
 Baixe playlists inteiras do youtube.
+
+// new func -> 4 threads 
 
 
 # Usage: 
