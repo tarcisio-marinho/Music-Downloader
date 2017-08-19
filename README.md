@@ -10,6 +10,8 @@ Baixe playlists inteiras do youtube.
 
 // new func -> 4 threads 
 
+// checar antes de baixar a proxima musica se a internet caiu, se cair durante um download -> baixar dnv
+
 
 # Usage: 
 
